@@ -1,4 +1,4 @@
-### Juego de tipeo ⌨️
+# Juego de tipeo ⌨️
 ## Explicación del Juego 🕹️
 
 
