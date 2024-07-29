@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/4aa5d98126.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>KeyboardPro Game</title>
+  </head>
+  <body>
+    <header>
+      <h1><span class="pro">Keyboard-PRO</span></h1>
+      <div class="buttons">
+        <i class="fa-solid fa-language" id="lenguageSelector"></i>
+        <div id="lenguage">
+          <ul>
+            <li><p id="en">English</p></li>
+            <li><p id="es">Español</p></li>
+          </ul>
+        </div>
+        <i class="fa-regular fa-sun"></i>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <h2>Ready?</h2>
+        <p class="count">60</p>
+        <div class="game-container" tabindex="0">
+          <div id="game"></div>
+          <div id="cursor"></div>
+          <div id="in-focus">CLICK TO FOCUS</div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
