@@ -388,6 +388,7 @@ document.querySelector(".game-container").addEventListener("keyup", (ev) => {
       });
       removeClass(currentLetter, "current");
     }
+    addClass(currentWord, "previusWord")
     removeClass(currentWord, "current");
     addClass(currentWord.nextElementSibling, "current");
     addClass(currentWord.nextElementSibling.firstChild, "current");
@@ -396,11 +397,11 @@ document.querySelector(".game-container").addEventListener("keyup", (ev) => {
   if (isDelete) {
     if (currentLetter && isFirstLetter) {
       removeClass(currentWord, "current");
-      addClass(currentWord.previousSibling, "current");
+      addClass(document.querySelector('.previusWord'), "current");
       removeClass(currentLetter, "current");
-      addClass(currentWord.previousSibling.lastChild, "current");
-      removeClass(currentWord.previousSibling.lastChild, "incorrect");
-      removeClass(currentWord.previousSibling.lastChild, "correct");
+      addClass(document.querySelector('.previusWord').lastChild, "current");
+      removeClass(document.querySelector('.previusWord').lastChild, "incorrect");
+      removeClass(document.querySelector('.previusWord').lastChild, "correct");
     } else if (currentLetter) {
       removeClass(currentLetter, "current");
       addClass(currentLetter.previousSibling, "current");
