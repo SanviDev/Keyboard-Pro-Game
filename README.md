@@ -16,6 +16,19 @@
     Programa diseñado con HTML, CSS, JS (Con posible implementacion de JSON, MySQL, NodeJS, D3). 🌐
 
 
+### Funcionamiento :gear:
+
+
+  **Idioma e Interface 🗺️** 
+    - Dependiendo del idioma elegido se retorna una u otra array con 200 palabras en el idioma seleccionado.
+    Esta array se imprime en el DOM. Esto por medio de la función ```gameElement()``` Y ```textContent()```.
+  **Escritura 🖊️** 
+    - Hay un evento keyup que recibe las teclas precionadas cuando el contenedor del juego #game esta en el foco.
+    Por medio de una condicional se corrobora si la tecla es una letra; si así es, y existe una letra actual,si así es, y si la letra es la que corresponde a la palabra actual, la letra se pone en blanco; si es incorrecta se tiñe de rojo.
+  **Borrar :arrow_left** 
+    - Si se preciona la tecla "Backspace" se ve si la posicion de la letra es la primera de la palbra, si así es, la palabra    actual se reemplaza por la anterior a la que ahora se concidera ```.current``` y esta clase se reemplaza por ```.previusCurrent``` .
+    En caso de que la variable ```currentLeter``` no sea la primera letra de la palabra,, sencillamente la clase ```.current``` se elimina de la letra en cuestión y se le añade en ```currentLeter.previusSilving```.
+
 ## Licencia 🔑
 
 MIT
