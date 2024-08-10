@@ -1,4 +1,15 @@
+
+const viewStatistics = document.querySelector('.statistics');
 const modalLenguage = document.getElementById("lenguage");
+const position = {
+  CURR: 'current',
+  PREV_W: 'previusWord'
+}
+
+let countLetter = 0;
+let countWord = 0;
+
+
 
 ////////////////////////////*Functions////////////////////////////
 
@@ -34,6 +45,10 @@ const lenguage = () => {
     return l;
   });
 };
+
+
+
+
 
 ////////////////////////////*Texts and Words////////////////////////////
 
@@ -335,8 +350,8 @@ const textContent = (l) => {
 
   const letter = document.querySelector(".letter");
   const word = document.querySelector(".word");
-  addClass(letter, "current");
-  addClass(word, "current");
+  addClass(letter, position.CURR);
+  addClass(word, position.CURR);
 };
 
 ////////////////////////////*Inicialize////////////////////////////
@@ -349,63 +364,105 @@ textContent();
 const letter = document.querySelector(".letter");
 const allLetters = [...document.querySelectorAll(".letter")];
 const word = document.querySelector(".word");
-addClass(letter, "current");
-addClass(word, "current");
+addClass(letter, position.CURR);
+addClass(word, position.CURR);
+
+let time = 60
+const init = document.getElementById('newGame').addEventListener('click', () => {
+  countLetter = 0;
+  countWord = 0;
+  openCloseOptions();
+  textContent(openCloseOptions());
+  if (time > 0) {
+    time = 60
+    const intervalId = setInterval(() => {
+      document.querySelector('.count').textContent = time;
+      if (time > 0) {
+        time--;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 1000);
+  } if (time === 0) {
+    time = 60
+    const intervalId = setInterval(() => {
+      document.querySelector('.count').textContent = time;
+      if (time > 0) {
+        time--;
+      } else {
+        clearInterval(intervalId);
+        statistics()
+      }
+    }, 1000);
+  }
+})
+
 
 document.querySelector(".game-container").addEventListener("keyup", (ev) => {
-  const key = ev.key;
-  const currentLetter = document.querySelector(".letter.current");
-  const currentWord = document.querySelector(".word.current");
-  const previusWord = document.querySelector('.previusWord')
-  const supposed = currentLetter?.innerHTML || " ";
-  const isLetter = key.length === 1 && key !== " ";
-  const isSpace = key === " ";
-  const isDelete = key === "Backspace";
-  const isFirstLetter =
-    currentLetter === currentWord.querySelector(".letter:first-child");
-  const isLastLetter = 
-    currentLetter === currentWord.querySelector(".letter:last-child")
+  if (time > 0) {// Verificar si el temporizador sigue activo
+    removeClass(viewStatistics, 'visible')
+    const key = ev.key;
+    const currentLetter = document.querySelector(".letter.current");
+    const currentWord = document.querySelector(".word.current");
+    const previusWord = document.querySelector('.previusWord');
+    const supposed = currentLetter?.innerHTML || " ";
+    const isLetter = key.length === 1 && key !== " ";
+    const isSpace = key === " ";
+    const isDelete = key === "Backspace";
+    const isFirstLetter =
+      currentLetter === currentWord.querySelector(".letter:first-child");
+    const isLastLetter =
+      currentLetter === currentWord.querySelector(".letter:last-child");
 
-  console.log({ key, supposed });
+    console.log({ key, supposed });
 
-  if (isLetter) {
-    if (currentLetter) {
-      if (key === supposed) {
-        addClass(currentLetter, "correct");
-      } else {
-        addClass(currentLetter, "incorrect");
-      }
-      removeClass(currentLetter, "current");
-      if (currentLetter.nextSibling) {
-        addClass(currentLetter.nextSibling, "current");
+    if (isLetter) {
+      countLetter++;
+      if (currentLetter) {
+        if (key === supposed) {
+          addClass(currentLetter, "correct");
+        } else {
+          addClass(currentLetter, "incorrect");
+        }
+        removeClass(currentLetter, position.CURR);
+        if (currentLetter.nextSibling) {
+          addClass(currentLetter.nextSibling, position.CURR);
+        }
       }
     }
-  }
-  if (isSpace) {
-    
-  }
-  if (isLastLetter) {
-    if (previusWord) {
-      removeClass(previusWord, 'previusWord')
+    if (isSpace) {
+      // Lógica para manejar espacio (si es necesario)
     }
-    addClass(currentWord, "previusWord")
-    removeClass(currentWord, "current");
-    addClass(currentWord.nextElementSibling, "current");
-    addClass(currentWord.nextElementSibling.firstChild, "current");
-  }
+    if (isLastLetter) {
+      addClass(currentWord, position.PREV_W);
+      removeClass(currentWord, position.CURR);
+      addClass(currentWord.nextElementSibling, position.CURR);
+      addClass(currentWord.nextElementSibling.firstChild, position.CURR);
+      removeClass(previusWord, position.PREV_W);
+    }
 
-  if (isDelete) {
+    if (isDelete) {
+      alert('Opción de borrar no disponible, sigue jugando');
+    }
     if (isFirstLetter) {
-      
+      countWord++;      
     }
-    if (currentLetter && isFirstLetter) {
-      
-    
-    } else if (currentLetter) {
-      removeClass(currentLetter, "current");
-      addClass(currentLetter.previousSibling, "current");
-      removeClass(currentLetter.previousSibling, "incorrect");
-      removeClass(currentLetter.previousSibling, "correct");
-    }
+  } else {
+    statistics()
   }
+  
 });
+
+function statistics() {
+  
+  const percentOk = document.getElementById('number-percent');
+  const totalWord = document.getElementById('number-total');
+  const letterOk = document.querySelectorAll('.correct').length;
+
+  const percent = ((letterOk * 100) / countLetter).toFixed(1);
+
+  percentOk.innerText = percent;
+  totalWord.innerText = countWord;
+  addClass(viewStatistics, 'visible');
+}
+

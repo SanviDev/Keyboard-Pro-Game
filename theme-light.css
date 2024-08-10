@@ -1,0 +1,10 @@
+body.light {
+    background-color: #ffe;
+    color: #111;
+}
+body.light .game-container {
+    background-color: rgb(166, 166, 157);
+}
+body.light .word {
+    color: #555;
+}
