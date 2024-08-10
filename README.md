@@ -26,7 +26,8 @@
   - Hay un evento keyup que recibe las teclas precionadas cuando el contenedor del juego #game esta en el foco.
   Por medio de una condicional se corrobora si la tecla es una letra; si así es, y existe una letra actual,si así es, y si la letra es la que corresponde a la palabra actual, la letra se pone en blanco; si es incorrecta se tiñe de rojo.
   **Borrar :arrow_left** 
-    *~~En proceso~~*
+  
+      *~~En proceso~~*
 
   **Estadísticas**
    - Al terminarse el tiempo previsto de 60 segundos, se muestra la cantidad de palabras escritas y el porcentaje de acierto total.
