@@ -26,8 +26,7 @@
   - Hay un evento keyup que recibe las teclas precionadas cuando el contenedor del juego #game esta en el foco.
   Por medio de una condicional se corrobora si la tecla es una letra; si así es, y existe una letra actual,si así es, y si la letra es la que corresponde a la palabra actual, la letra se pone en blanco; si es incorrecta se tiñe de rojo.
   **Borrar :arrow_left** 
-  - Si se preciona la tecla "Backspace" se ve si la posicion de la letra es la primera de la palbra, si así es, la palabra    actual se reemplaza por la anterior a la que ahora se concidera ```.current``` y esta clase se reemplaza por ```.previusCurrent``` .
-  En caso de que la variable ```currentLeter``` no sea la primera letra de la palabra,, sencillamente la clase ```.current``` se elimina de la letra en cuestión y se le añade en ```currentLeter.previusSilving```.
+    *~~En proceso~~*
 
   **Estadísticas**
    - Al terminarse el tiempo previsto de 60 segundos, se muestra la cantidad de palabras escritas y el porcentaje de acierto total.
