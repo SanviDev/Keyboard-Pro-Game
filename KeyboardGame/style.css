@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz@9..40&display=swap");
+:root {
+  --primary-color: #a1a7ff;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #111;
+  color: #fdfdfd;
+  font-size: 1.2rem;
+}
+header {
+  position: relative;
+  text-align: center;
+}
+.pro {
+  color: var(--primary-color);
+}
+.buttons {
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+.content {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+i {
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+#lenguage {
+  background: #333;
+  position: absolute;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  display: none;
+}
+#lenguage.activate {
+  display: block;
+}
+ul {
+  list-style: none;
+  padding: 0 1rem;
+}
+li {
+  margin-top: 16px;
+}
+#en,
+#es {
+  text-decoration: none;
+  color: #fdfdfd;
+  cursor: pointer;
+}
+.count {
+  text-align: left;
+  width: 65%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+.info-group {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+button {
+  background-color: #555;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  border-radius: 5px;
+  color: #fdfdfd;
+  &:hover {
+    background-color: #444;
+  }
+  cursor: pointer;
+}
+.game-container {
+  position: relative;
+  line-height: 35px;
+  width: 70%;
+  margin: 0 auto;
+  height: 170px;
+  border-radius: 20px;
+  background-color: #333;
+  font-family: "DM Mono", monospace;
+  overflow: hidden;
+  padding: 1rem;
+  text-align: left;
+}
+#game {
+    filter: blur(5px);
+    transition: 150ms;
+}
+.game-container:focus #game {
+    filter: blur(0);
+}
+.game-container:focus #in-focus{
+    display: none;
+}
+
+#cursor{
+    display:none;
+    width: 2px;
+    height: 1.6rem;
+    background: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 18px;
+}
+#game:focus #cursor{
+    display: block;
+}
+#in-focus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem
+}
+.word {
+  display: inline;
+  color: #aaa;
+}
+.correct {
+  color: #fff;
+}
+.incorrect {
+  color: #f44;
+}
+
+
+.statistics {
+  display: none;
+  justify-content: space-around;
+  width: 70%;
+  margin: 5rem auto;
+}
+.statistics-title {
+  text-align: center;
+  color: #6670f8;
+}
+.statistics.visible {
+  display: flex;
+}

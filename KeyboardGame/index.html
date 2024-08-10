@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/4aa5d98126.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="theme-light.css">
+    <link rel="icon" href="ico/favicon.ico" type="image/x-icon">
+    <title>KeyboardPro Game</title>
+  </head>
+  <body>
+    <header>
+      <h1><span class="pro">Keyboard-PRO</span></h1>
+      <div class="buttons">
+        <i class="fa-solid fa-language" id="lenguageSelector"></i>
+        <div id="lenguage">
+          <ul>
+            <li><p id="en">English</p></li>
+            <li><p id="es">Español</p></li>
+          </ul>
+        </div>
+        <i class="fa-regular fa-sun"></i>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <h2>Ready?</h2>
+        <div class="info-group">
+          <p class="count">60</p>
+          <button id="newGame">New Game</button>
+        </div>
+        <div class="game-container" tabindex="0">
+          <div id="game"></div>
+          <div id="cursor"></div>
+          <div id="in-focus">CLICK TO FOCUS</div>
+          
+        </div>
+      </div>
+      <div class="statistics">
+        <div class="percent-container">
+          <p>Porcentaje de acierto:</p>
+          <h1 class="statistics-title">
+            <span id="number-percent">60</span>%
+          </h1>
+        </div>
+        <div class="total-container">
+          <p>Cantidad escrita:  </p>
+          <h1 class="statistics-title">
+            <span id="number-total">30</span> palabras
+          </h1>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="script.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>
+
