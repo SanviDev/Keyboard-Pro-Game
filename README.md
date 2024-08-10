@@ -13,7 +13,7 @@
 ## Explicación del software 💻
 
 
-    Programa diseñado con HTML, CSS, JS (Con posible implementacion de JSON, MySQL, NodeJS, D3). 🌐
+  * Programa diseñado con HTML, CSS, JS (Con posible implementacion de JSON, MySQL, NodeJS, D3). 🌐
 
 
 ### Funcionamiento ⚙️
