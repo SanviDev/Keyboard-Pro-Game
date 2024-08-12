@@ -381,6 +381,7 @@ const init = document.getElementById('newGame').addEventListener('click', () => 
         time--;
       } else {
         clearInterval(intervalId);
+        statistics()
       }
     }, 1000);
   } if (time === 0) {
